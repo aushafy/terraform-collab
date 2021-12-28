@@ -8,6 +8,12 @@ terraform {
 }
 
 provider "aws" {
-  # Configuration options
-  region = "ap-southeast-2" # Sydney
+  region = var.region
+}
+
+terraform {
+  backend "s3" {
+    bucket = "aushafy-tf-state"
+    region = "ap-southeast-2"
+  }
 }
