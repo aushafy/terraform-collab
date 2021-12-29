@@ -1,0 +1,29 @@
+- name: setup nginx for landingpage application
+  hosts: aws
+  remote_user: ubuntu
+  become: yes # give sudo permission
+  tasks:
+  - name: update
+    apt:
+      update_cache: yes
+  - name: install nginx
+    apt:
+      name=nginx state=present
+  - name: start nginx service / daemon
+    service:
+      name=nginx state=started enabled=yes
+  - name: stop firewall service ubuntu
+    service:
+      name=ufw state=stopped
+  - name: create user nginxuser
+    user:
+      name=nginxuser
+  - name: install git
+    apt:
+      name=git state=present
+  - name: remove index.html default nginx
+    file:
+      state=absent path=/var/www/html/index*
+  - name: git clone landing page from Github
+    git:
+      clone=yes repo=https://github.com/aushafy/landing-page.git dest=/var/www/html/

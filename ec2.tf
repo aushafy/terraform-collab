@@ -1,7 +1,7 @@
 module "ec2-instance" {
   source  = "terraform-aws-modules/ec2-instance/aws"
   version = "3.3.0"
-  count = 3
+  count = 2
   name                          = "${var.ec2_name}-${count.index}"
   associate_public_ip_address   = var.ec2_public_ip
   availability_zone             = "ap-southeast-2c"
