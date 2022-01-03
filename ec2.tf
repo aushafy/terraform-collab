@@ -16,5 +16,6 @@ module "ec2-instance" {
     Terraform   = "true"
     Environment = "dev"
     CreatedBy   = "Aushafy - DevOps & Infrastructure Dept"
+    nama : adamandika
   }
 }
