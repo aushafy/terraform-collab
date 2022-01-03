@@ -2,6 +2,7 @@
   hosts: aws
   remote_user: ubuntu
   become: yes # give sudo permission
+  gather_facts: no
   tasks:
   - name: update
     apt:

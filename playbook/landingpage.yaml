@@ -1,0 +1,10 @@
+- name: install landing page
+  hosts: landingpage
+  remote_user: ubuntu
+  become: yes
+  # disable become_method bcs the default is sudo
+  # become_method: sudo 
+  roles:
+  - common
+  - landingpage
+  # - TODO LIST: bikin POST TEST ansible roles pengecekan web service apakah sudah berhasil atau belum. clue: curl

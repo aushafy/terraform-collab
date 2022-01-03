@@ -1,0 +1,19 @@
+- name: install nginx
+  apt:
+    name: nginx
+    state: latest
+- name: start nginx service
+  service:
+    name: nginx
+    state: started
+- name: Change nginx port to listen 8080
+  template:
+    src: default.j2
+    dest: /etc/nginx/sites-enabled/default
+  notify: restart nginx
+- name: remove index.html default nginx
+  file:
+    state=absent path=/var/www/html/
+- name: deploy landing page
+  git:
+    clone=yes repo=https://github.com/aushafy/landing-page.git dest=/var/www/html/

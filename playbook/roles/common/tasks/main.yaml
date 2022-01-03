@@ -1,0 +1,19 @@
+- name: do ubuntu update
+  apt:
+    update_cache: yes
+- name: install wget
+  apt:
+    name: wget
+    state: latest
+- name: install unzip
+  apt:
+    name: unzip
+    state: latest
+- name: install git
+  apt:
+    name: git
+    state: latest
+- name: mysql client
+  apt:
+    name: mariadb-client
+    state: latest

@@ -1,0 +1,8 @@
+- name: install sosial media
+  hosts: aws
+  remote_user: ubuntu
+  become: yes
+  become_method: sudo
+  roles:
+  - common
+  - sosialmedia
